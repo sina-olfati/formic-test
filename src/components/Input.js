@@ -8,15 +8,16 @@ const formik = useFormik({
         name: "",
         email: "",
         channel: "",
+    },
+    onSubmit: values => {
+        console.log(values);
     }
 })
-
-console.log(formik.values)
 
 
   return (
     <div className='container'>
-      <form>
+      <form onSubmit={formik.handleSubmit}>
         <label className="label" htmlFor = "name">Name</label>
         <input type="text" id = "name" name = "name" onChange={formik.handleChange} value={formik.values.name}/>
         
@@ -26,7 +27,7 @@ console.log(formik.values)
         <label htmlFor = "channel">Channel</label>
         <input type="text" id = "channel" name = "channel" onChange={formik.handleChange} value={formik.values.channel}/>
 
-        <button>Submit</button>
+        <button type="submit">Submit</button>
       </form>
     </div>
   )
