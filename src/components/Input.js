@@ -11,6 +11,26 @@ const formik = useFormik({
     },
     onSubmit: values => {
         console.log(values);
+    },
+    validate: values => {
+        let errors = {}
+
+        if(!values.name) {
+            errors.name = "Required"
+        }
+
+        if(!values.email) {
+            errors.email = "Required"
+        } else if (!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(values.email)) {
+            errors.email = "Invalid Email Format"
+        }
+
+        if(!values.channel) {
+            errors.channel = "Required"
+        }
+        
+
+        return errors
     }
 })
 
