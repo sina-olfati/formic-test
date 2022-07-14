@@ -1,7 +1,11 @@
 import React from 'react'
 import "./Input.css"
+import { useFormik } from 'formik'
 
 const Input = () => {
+const formik = useFormik({})
+
+
   return (
     <div className='container'>
       <form>
