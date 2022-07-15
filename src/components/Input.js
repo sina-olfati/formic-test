@@ -1,30 +1,27 @@
 import React from 'react'
 import "./Input.css"
-import { useFormik, yupToFormErrors } from 'formik'
+import { yupToFormErrors, Formik, Form } from 'formik'
 import * as Yup from "yup"
 
-const Input = () => {
-const formik = useFormik({
-    initialValues: {
-        name: "",
-        email: "",
-        channel: "",
-    },
-    onSubmit: values => {
-        console.log(values);
-    },
-    validationSchema: Yup.object({
-      name: Yup.string().required("Required"),
-      email: Yup.string().email("Invalid email format").required("Required"),
-      channel: Yup.string().required("Required"),
-    })
-
+const initialValues = {
+  name: "",
+  email: "",
+  channel: "",
+}
+const onSubmit = values => {
+  console.log(values);
+}
+const validationSchema = Yup.object({
+  name: Yup.string().required("Required"),
+  email: Yup.string().email("Invalid email format").required("Required"),
+  channel: Yup.string().required("Required"),
 })
-console.log(formik.touched)
+
+const Input = () => {
 
   return (
-    <div className='container'>
-      <form onSubmit={formik.handleSubmit}>
+    <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
+      <Form>
         <div className='controler'>
         <label className="label" htmlFor = "name">Name</label>
         <input type="text" id = "name" name = "name" {...formik.getFieldProps("name")}/>
@@ -44,8 +41,8 @@ console.log(formik.touched)
         </div>
 
         <button type="submit">Submit</button>
-      </form>
-    </div>
+      </Form>
+    </Formik>
   )
 }
 
