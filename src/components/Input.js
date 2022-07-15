@@ -1,6 +1,6 @@
 import React from 'react'
 import "./Input.css"
-import { Formik, Form, Field } from 'formik'
+import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from "yup"
 
 const initialValues = {
@@ -25,19 +25,19 @@ const Input = () => {
         <div className='controler'>
         <label className="label" htmlFor = "name">Name</label>
         <Field type="text" id = "name" name = "name"/>
-        {formik.touched.name ? <div className='error'>{formik.errors.name}</div> : null}
+        <ErrorMessage name='name' />
         </div>
 
         <div className='controler'>
         <label htmlFor = "email">Email</label>
         <Field type="email" id = "email" name = "email"/>
-        {formik.touched.email ? <div className='error'>{formik.errors.email}</div> : null}
+        <ErrorMessage name='email' />
         </div>
 
         <div className='controler'>
         <label htmlFor = "channel">Channel</label>
         <Field type="text" id = "channel" name = "channel"/>
-        {formik.touched.channel ? <div className='error'>{formik.errors.channel}</div> : null}
+        <ErrorMessage name='channel' />
         </div>
 
         <button type="submit">Submit</button>
