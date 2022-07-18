@@ -15,6 +15,7 @@ const validationSchema = Yup.object({
   name: Yup.string().required("Required"),
   email: Yup.string().email("Invalid email format").required("Required"),
   channel: Yup.string().required("Required"),
+  address: Yup.string().required("Required"),
 })
 
 const Input = () => {
@@ -38,6 +39,26 @@ const Input = () => {
         <label htmlFor = "channel">Channel</label>
         <Field type="text" id = "channel" name = "channel"/>
         <ErrorMessage name='channel' />
+        </div>
+
+        <div className='controler'>
+        <label htmlFor = "comments">Comments</label>
+        <Field as="textarea" type="text" id = "comments" name = "comments"/>
+        </div>
+
+        <div className='controler'>
+        <label htmlFor = "address">Address</label>
+        <Field name="address">
+          {props => {
+            const {form, field, meta} = props
+            return (
+              <div>
+                <input type="text" id="address" {...field}/>
+                {meta.touched && meta.error ? <div>{meta.error}</div> : null}
+              </div>
+            )
+          }}
+        </Field>
         </div>
 
         <button type="submit">Submit</button>
