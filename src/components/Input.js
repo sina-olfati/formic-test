@@ -12,7 +12,8 @@ const initialValues = {
   social: {
     facebook: "",
     twitter: ""
-  }
+  },
+  phoneNumbers: ["", ""]
 }
 const onSubmit = values => {
   console.log(values);
@@ -77,6 +78,16 @@ const Input = () => {
         <div className='controler'>
         <label htmlFor = "twitter">Twitter</label>
         <Field type="text" id = "twitter" name = "social.twitter"/>
+        </div>
+
+        <div className='controler'>
+        <label htmlFor = "primaryPn">Primary phone number</label>
+        <Field type="text" id = "primaryPn" name = "phoneNumbers[0]"/>
+        </div>
+
+        <div className='controler'>
+        <label htmlFor = "secondaryPn">Secondary phone number</label>
+        <Field type="text" id = "secondaryPn" name = "phoneNumbers[1]"/>
         </div>
 
         <button type="submit">Submit</button>
