@@ -26,13 +26,15 @@ const Input = () => {
         <div className='controler'>
         <label className="label" htmlFor = "name">Name</label>
         <Field type="text" id = "name" name = "name"/>
-        <ErrorMessage name='name' />
+        <ErrorMessage name='name' component="div"/>
         </div>
 
         <div className='controler'>
         <label htmlFor = "email">Email</label>
         <Field type="email" id = "email" name = "email"/>
-        <ErrorMessage name='email' />
+        <ErrorMessage name='email'>
+          {message => <div className="error">{message}</div>}
+        </ErrorMessage>
         </div>
 
         <div className='controler'>

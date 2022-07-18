@@ -21,11 +21,13 @@ label {
 .error {
     color: red;
     font-size: small;
-    text-align: left;
+    
 }
 
 button{
     font-weight: bold;
 }
+
+
 
 
