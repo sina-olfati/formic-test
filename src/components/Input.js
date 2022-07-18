@@ -7,6 +7,12 @@ const initialValues = {
   name: "",
   email: "",
   channel: "",
+  comments: "",
+  address: "",
+  social: {
+    facebook: "",
+    twitter: ""
+  }
 }
 const onSubmit = values => {
   console.log(values);
@@ -61,6 +67,16 @@ const Input = () => {
             )
           }}
         </Field>
+        </div>
+
+        <div className='controler'>
+        <label htmlFor = "facebook">Facebook</label>
+        <Field type="text" id = "facebook" name = "social.facebook"/>
+        </div>
+
+        <div className='controler'>
+        <label htmlFor = "twitter">Twitter</label>
+        <Field type="text" id = "twitter" name = "social.twitter"/>
         </div>
 
         <button type="submit">Submit</button>
